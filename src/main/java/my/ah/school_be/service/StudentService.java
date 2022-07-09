@@ -20,7 +20,6 @@ public class StudentService {
     StudentRepository studentRepository;
 
     public List<StudentEntity> findAll(){
-        logger.info("------- inside service -------");
         return studentRepository.findAll();
     }
 
@@ -74,8 +73,8 @@ public class StudentService {
     public ResponseEntity<Object> delete(Long Id) {
         Optional<StudentEntity> searchEntity = studentRepository.findById(Id);
         if (searchEntity.isPresent()) {
-            StudentEntity bisonMessage = searchEntity.get();
-            studentRepository.delete(bisonMessage);
+            StudentEntity studentEntity = searchEntity.get();
+            studentRepository.delete(studentEntity);
         } else {
             throw new EntityNotFoundException();
         }
