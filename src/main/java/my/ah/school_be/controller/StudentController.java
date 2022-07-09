@@ -22,11 +22,6 @@ public class StudentController {
     @Autowired
     private StudentService studentService;
 
-//    @GetMapping
-//    public String getAll() {
-//        return "Hello World";
-//    }
-
     @GetMapping
     public List<StudentEntity> getAll() {
         //logger.info(studentService.findAll().toString());
