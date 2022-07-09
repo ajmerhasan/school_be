@@ -1,0 +1,52 @@
+app:
+  name: school-be
+
+welcome:
+  message:  Welcome to ${app.name} in Local
+
+#jasypt:
+#  encryptor:
+#    algorithm: PBEWithMD5AndDES
+#    iv-generator-classname: org.jasypt.iv.NoIvGenerator
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api
+
+spring:
+  profiles:
+    active: loc
+  main:
+    banner-mode: "off"
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/school?createDatabaseIfNotExist=TRUE
+    username: root
+    password: lab
+#    password: ENC(B3H73THnxpp9s5aXBfJmqg==)
+  jpa:
+    properties:
+      hibernate:
+      #default_schema: nvs_central
+    hibernate:
+      dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+      ddl-auto: update
+      #ddl-auto: update | create | create-drop | none | validate
+    show-sql: true
+  data:
+    web:
+      pageable:
+        max-page-size: 1000000
+
+flyway:
+  url: jdbc:mysql://localhost:3306/school
+  schemas: school
+  user: "root"
+  password: "lab"
+#  password: "ENC(x3kZRkyJkNst3bG/PwCvSbMzM3GgL7mU)"
+
+logging:
+  level:
+    org:
+      springframework: DEBUG
