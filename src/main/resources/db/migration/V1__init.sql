@@ -14,13 +14,13 @@ CREATE TABLE course(
   PRIMARY KEY (course_id)
 );
 
-CREATE TABLE student_course(
-  student_course_id INT NOT NULL AUTO_INCREMENT,
+CREATE TABLE enroll(
+  enroll_id INT NOT NULL AUTO_INCREMENT,
   student_id INT NOT NULL,
   course_id INT NOT NULL,
   year_taken INT(4) NOT NULL,
   score INT(3) NOT NULL,
-  PRIMARY KEY (student_course_id),
+  PRIMARY KEY (enroll_id),
   FOREIGN KEY (student_id) REFERENCES student(student_id) ON DELETE CASCADE,
   FOREIGN KEY (course_id) REFERENCES course(course_id) ON DELETE CASCADE
 );

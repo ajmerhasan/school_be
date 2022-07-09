@@ -1,7 +1,7 @@
 plugins {
 	id 'org.springframework.boot' version '2.7.1'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
-//	id 'org.flywaydb.flyway' version '8.5.13'
+	id 'org.flywaydb.flyway' version '8.5.13'
 	id 'java'
 }
 
@@ -26,11 +26,9 @@ dependencies {
 
 	runtimeOnly 'mysql:mysql-connector-java'
 
-
-
 	//db migration
-//	implementation 'org.flywaydb:flyway-core:8.4.4'
-//	implementation 'org.flywaydb:flyway-mysql:8.4.4'
+	implementation 'org.flywaydb:flyway-core:8.4.4'
+	implementation 'org.flywaydb:flyway-mysql:8.4.4'
 
 	//swagger
 //	implementation 'io.springfox:springfox-swagger2:2.8.0'
@@ -41,7 +39,7 @@ dependencies {
 	testImplementation ("org.springframework.boot:spring-boot-starter-test") {
 		exclude group: 'com.vaadin.external.google', module: 'android-json'
 	}
-//	implementation 'junit:junit'
+	implementation 'junit:junit'
 }
 
 tasks.named('test') {

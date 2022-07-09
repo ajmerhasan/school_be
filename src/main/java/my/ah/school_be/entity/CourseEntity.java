@@ -28,5 +28,5 @@ public class CourseEntity extends Audit {
             fetch = FetchType.LAZY,
             mappedBy = "course")
     @JsonBackReference
-    private List<StudentCourseEntity> courses;
+    private List<EnrollEntity> courses;
 }

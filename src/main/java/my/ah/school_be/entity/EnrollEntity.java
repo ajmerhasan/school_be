@@ -1,10 +1,7 @@
 package my.ah.school_be.entity;
 
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
-import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -16,10 +13,10 @@ import javax.validation.constraints.NotNull;
 //@ToString
 @Entity
 //@DynamicUpdate
-@Table(name = "student_course")
-public class StudentCourseEntity extends Audit {
+@Table(name = "enroll")
+public class EnrollEntity extends Audit {
     @javax.persistence.Id
-    @Column(name = "student_course_id")
+    @Column(name = "enroll_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
@@ -45,12 +42,12 @@ public class StudentCourseEntity extends Audit {
     @Column(name = "score")
     public int score;
 
-    public StudentCourseEntity setStudent(StudentEntity student) {
+    public EnrollEntity setStudent(StudentEntity student) {
         this.student = student;
         return this;
     }
 
-    public StudentCourseEntity setCourse(CourseEntity course) {
+    public EnrollEntity setCourse(CourseEntity course) {
         this.course = course;
         return this;
     }
