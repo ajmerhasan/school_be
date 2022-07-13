@@ -59,6 +59,12 @@ public class EnrollController {
         return enrollService.updateScore(studentId, courseId, enrollment);
     }
 
+    @PutMapping("/{id}")
+    public EnrollEntity update(@Valid @PathVariable("id") Long id,
+                               @Valid @RequestBody EnrollEntity enrollment) {
+        return enrollService.update(id, enrollment);
+    }
+
     @DeleteMapping("/{id}")
     public void remove(@PathVariable("id") Long id){
         enrollService.delete(id);

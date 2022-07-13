@@ -97,6 +97,20 @@ public class EnrollService {
         return enrollEntity;
     }
 
+    public EnrollEntity update(Long id, EnrollEntity enrollment) {
+        EnrollEntity enrollEntity;
+        Optional<EnrollEntity> searchEntity = enrollRepository.findById(id);
+        if (searchEntity.isPresent()){
+            EnrollEntity searchResult = searchEntity.get();
+            searchResult.setYearTaken(enrollment.getYearTaken());
+            searchResult.setScore(enrollment.getScore());
+            enrollEntity = enrollRepository.save(searchResult);
+        } else {
+            throw new EntityNotFoundException();
+        }
+        return enrollEntity;
+    }
+
     public ResponseEntity<Object> delete(Long Id) {
         Optional<EnrollEntity> searchEntity = enrollRepository.findById(Id);
         if (searchEntity.isPresent()) {
